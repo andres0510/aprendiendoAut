@@ -14,7 +14,7 @@ public class GoogleSteps {
 
     @Dado("^que me encuentro en la pagina de Google$")
     public void queMeEncuentroEnLaPaginaDeGoogle(){
-        GeneralController.openGoogleApp();
+        GeneralController.openApp("Google");
     }
 
     @Cuando("^ingreso a la seccion de imagenes e ingreso el elemento a buscar$")
