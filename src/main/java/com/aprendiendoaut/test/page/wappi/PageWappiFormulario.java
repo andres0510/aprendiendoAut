@@ -7,6 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageWappiFormulario {
 
+    @FindBy(xpath="//input[@id='image']")
+    WebElement inputImagen;
+
     @FindBy(id="name")
     WebElement inputNombre;
 
@@ -39,6 +42,10 @@ public class PageWappiFormulario {
 
     public PageWappiFormulario() {
         PageFactory.initElements(DriverManager.getDriver(),this);
+    }
+
+    public void ingresarImagen(String imagen){
+        inputImagen.sendKeys(imagen);
     }
 
     public void ingresarUsuario(String nombre){

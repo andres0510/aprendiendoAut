@@ -26,6 +26,7 @@ public class WappiSteps {
         persona.setPais("Colombia");
         persona.setSexo("Femenino");
         WappiController.ingresarDatos(persona);
+        WappiController.guardarDatos();
 
     }
 

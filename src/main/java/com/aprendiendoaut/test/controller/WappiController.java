@@ -43,8 +43,11 @@ public class WappiController {
         }
     }
 
+
     public static void ingresarDatos (Persona persona){
         PageWappiFormulario pageWappiFormulario = new PageWappiFormulario();
+        String rutaImagen = String.format("%s\\src\\main\\resources\\files\\pato.avif",System.getProperty("user.dir"));
+        pageWappiFormulario.ingresarImagen(rutaImagen);
         pageWappiFormulario.ingresarUsuario(persona.getNombre());
         pageWappiFormulario.ingresarApellido(persona.getApellido());
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -67,7 +70,7 @@ public class WappiController {
                 );
                 break;
         }
-        Utilidades.esperar(10000);
+
         switch (persona.getSexo()){
             case "Masculino":
                 pageWappiFormulario.clickSexoMasculino();
@@ -81,11 +84,11 @@ public class WappiController {
                 );
             break;
         }
-        //Todo Cargar imagén en el formulario
     }
 
     public static void guardarDatos(){
-        //Todo Dar click en el botón Guardar
+        PageWappiFormulario pageWappiFormulario = new PageWappiFormulario();
+        pageWappiFormulario.clickBtnGuardar();
     }
 
     public static void validarMensaje(){
