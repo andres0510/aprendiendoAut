@@ -40,6 +40,12 @@ public class PageWappiFormulario {
     @FindBy(id="save-profile")
     WebElement btnGuardar;
 
+    @FindBy(xpath = "//div[@id='confirmation-modal']//p")
+    WebElement lblMensajeModal;
+
+    @FindBy(xpath = "//div[@id='confirmation-modal']//span")
+    WebElement btnCerrarModal;
+
     public PageWappiFormulario() {
         PageFactory.initElements(DriverManager.getDriver(),this);
     }
@@ -85,5 +91,13 @@ public class PageWappiFormulario {
 
     public void clickBtnGuardar(){
         btnGuardar.click();
+    }
+
+    public String obtenerTextoModal(){
+       return lblMensajeModal.getText();
+    }
+
+    public void clickBtnCerrarModal(){
+        btnCerrarModal.click();
     }
 }

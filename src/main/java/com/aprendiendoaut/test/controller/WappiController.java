@@ -6,6 +6,7 @@ import com.aprendiendoaut.test.page.wappi.PageWappiCabezal;
 import com.aprendiendoaut.test.page.wappi.PageWappiFormulario;
 import com.aprendiendoaut.test.page.wappi.PageWappiIniciarSesion;
 import com.aprendiendoaut.test.utils.Utilidades;
+import org.junit.Assert;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -92,7 +93,11 @@ public class WappiController {
     }
 
     public static void validarMensaje(){
-        //Todo Validar mensaje "Guardado Éxitoso"
+        String mensajeExitoso = "Tu información se guardó correctamente";
+        PageWappiFormulario pageWappiFormulario = new PageWappiFormulario();
+        String mensajeModal = pageWappiFormulario.obtenerTextoModal();
+        Assert.assertEquals(mensajeExitoso, mensajeModal);
+        pageWappiFormulario.clickBtnCerrarModal();
     }
 
     public static void validarDatosActualizados(){

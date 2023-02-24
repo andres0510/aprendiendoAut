@@ -32,7 +32,9 @@ public class WappiSteps {
 
     @Entonces("^el sistema actualizará los datos$")
     public void elSistemaActualizaraLosDatos() throws InterruptedException {
-        Thread.sleep(30000);
+        WappiController.validarMensaje();
+        Thread.sleep(10000);
+
     }
 
 }
