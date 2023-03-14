@@ -10,6 +10,8 @@ import io.cucumber.java.es.Entonces;
 import java.util.Date;
 
 public class WappiSteps {
+    private Persona persona = new Persona();
+
     @Dado("^que me autentico en la página de wappi$")
     public void queMeAutenticoEnLaPaginaDeWappi(){
         GeneralController.openApp("Wappi");
@@ -17,9 +19,9 @@ public class WappiSteps {
     }
 
     @Cuando("^diligencio el formulario de actualización de datos$")
-    public void diligencioElFormularioDeActualizacionDeDatos(){
+    public void diligencioElFormularioDeActualizacionDeDatos()throws InterruptedException {
         WappiController.seleccionarOpcionMenu("Informacion Personal");
-        Persona persona = new Persona();
+
         persona.setNombre("Angelica");
         persona.setApellido("Franco");
         persona.setFechaNacimiento(new Date());
@@ -27,12 +29,15 @@ public class WappiSteps {
         persona.setSexo("Femenino");
         WappiController.ingresarDatos(persona);
         WappiController.guardarDatos();
+        Thread.sleep(3000);
 
     }
 
     @Entonces("^el sistema actualizará los datos$")
     public void elSistemaActualizaraLosDatos() throws InterruptedException {
         WappiController.validarMensaje();
+        WappiController.seleccionarOpcionMenu("Informacion Personal");
+        WappiController.validarDatosActualizados(persona);
         Thread.sleep(10000);
 
     }

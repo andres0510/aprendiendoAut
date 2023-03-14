@@ -100,8 +100,38 @@ public class WappiController {
         pageWappiFormulario.clickBtnCerrarModal();
     }
 
-    public static void validarDatosActualizados(){
+    public static void validarDatosActualizados(Persona usuario){
+
         //Todo validar campo Nombre actualizado
+
+        PageWappiFormulario pageWappiFormulario = new PageWappiFormulario();
+        String nombreUsuario = pageWappiFormulario.obtenerNombre();
+        Assert.assertEquals(nombreUsuario, usuario.getNombre());
+
+        String apellidoUsuario = pageWappiFormulario.obtenerApellido();
+        Assert.assertEquals(apellidoUsuario, usuario.getApellido());
+
+        String paisUsuario = pageWappiFormulario.obtenerPais();
+        Assert.assertEquals(paisUsuario, usuario.getPais());
+
+        String fechaNacimientoUsuario = pageWappiFormulario.obtenerFechaNacimiento();
+        Assert.assertEquals(fechaNacimientoUsuario, usuario.getFechaNacimiento());
+
+        String sexoUsuario="";
+       if (pageWappiFormulario.validarCheckSexoFemenino() && !pageWappiFormulario.validarCheckSexoMasculino()){
+           sexoUsuario="Femenino";
+       }
+       else
+       if (!pageWappiFormulario.validarCheckSexoFemenino() && pageWappiFormulario.validarCheckSexoMasculino()){
+           sexoUsuario="Masculino";
+       }
+       else
+       if (pageWappiFormulario.validarCheckSexoFemenino() && pageWappiFormulario.validarCheckSexoMasculino()){
+           Report.reportFail("Se encuentran seleccionados ambos radioButtom del sexo del usuario");
+       }
+       else{
+           Report.reportFail("No se encuentran seleccionados ninguno de los radioButtom del sexo del usuario");}
+       Assert.assertEquals(sexoUsuario, usuario.getSexo());
         //Todo validar campo Apellido actualizado
         //Todo validar campo Fecha de Nacimiento actulizado
         //Todo validar campo Pais actualizado

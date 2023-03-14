@@ -100,4 +100,19 @@ public class PageWappiFormulario {
     public void clickBtnCerrarModal(){
         btnCerrarModal.click();
     }
+
+    public String obtenerNombre() {
+        System.out.println("");
+        return inputNombre.getText();
+    }
+
+    public String obtenerApellido() {return inputApellido.getText();}
+
+    public String obtenerPais() {return inputPais.getText();}
+
+    public String obtenerFechaNacimiento() {return inputFechaNacimiento.getText();}
+
+    public boolean validarCheckSexoFemenino() {return radioSexoFemenino.isSelected();}
+
+    public boolean validarCheckSexoMasculino() {return radioSexoMasculino.isSelected();}
 }
