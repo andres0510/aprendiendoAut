@@ -29,7 +29,6 @@ public class WappiSteps {
         persona.setSexo("Femenino");
         WappiController.ingresarDatos(persona);
         WappiController.guardarDatos();
-        Thread.sleep(3000);
 
     }
 
@@ -38,7 +37,7 @@ public class WappiSteps {
         WappiController.validarMensaje();
         WappiController.seleccionarOpcionMenu("Informacion Personal");
         WappiController.validarDatosActualizados(persona);
-        Thread.sleep(10000);
+        Thread.sleep(5000);
 
     }
 

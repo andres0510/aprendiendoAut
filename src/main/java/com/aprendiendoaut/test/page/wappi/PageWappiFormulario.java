@@ -102,15 +102,20 @@ public class PageWappiFormulario {
     }
 
     public String obtenerNombre() {
-        System.out.println("");
-        return inputNombre.getText();
+        return inputNombre.getAttribute("value");
     }
 
-    public String obtenerApellido() {return inputApellido.getText();}
+    public String obtenerApellido() {
+        return inputApellido.getAttribute("value");
+    }
 
-    public String obtenerPais() {return inputPais.getText();}
+    public String obtenerPais() {
+        return inputPais.getAttribute("value");
+    }
 
-    public String obtenerFechaNacimiento() {return inputFechaNacimiento.getText();}
+    public String obtenerFechaNacimiento() {
+        return inputFechaNacimiento.getAttribute("value");
+    }
 
     public boolean validarCheckSexoFemenino() {return radioSexoFemenino.isSelected();}
 
