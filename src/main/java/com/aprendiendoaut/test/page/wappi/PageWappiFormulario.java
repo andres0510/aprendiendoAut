@@ -1,6 +1,7 @@
 package com.aprendiendoaut.test.page.wappi;
 
 import com.aprendiendoaut.test.action.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -111,6 +112,11 @@ public class PageWappiFormulario {
 
     public String obtenerPais() {
         return inputPais.getAttribute("value");
+    }
+    public String obtenerNombrePaisEnPosicion(int posicion){
+        String xpath=String.format("//select[@id='country']/option[@value='%s']",posicion);
+        WebElement opcionPais=DriverManager.getDriver().findElement(By.xpath(xpath)) ;
+        return opcionPais.getText();
     }
 
     public String obtenerFechaNacimiento() {

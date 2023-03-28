@@ -110,8 +110,10 @@ public class WappiController {
         String apellidoUsuario = pageWappiFormulario.obtenerApellido();
         Assert.assertEquals(apellidoUsuario, usuario.getApellido());
 
-        //String paisUsuario = pageWappiFormulario.obtenerPais();
-        //Assert.assertEquals(paisUsuario, usuario.getPais());
+        String paisUsuario = pageWappiFormulario.obtenerPais();
+        int posicionPaisSeleccionada = Integer.parseInt(paisUsuario);
+        paisUsuario= pageWappiFormulario.obtenerNombrePaisEnPosicion(posicionPaisSeleccionada);
+        Assert.assertEquals(paisUsuario, usuario.getPais());
 
         String fechaNacimientoUsuario = pageWappiFormulario.obtenerFechaNacimiento();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -136,8 +138,6 @@ public class WappiController {
        }
        Assert.assertEquals(sexoUsuario, usuario.getSexo());
 
-
-        //Todo validar campo Pais actualizado
 
     }
 }

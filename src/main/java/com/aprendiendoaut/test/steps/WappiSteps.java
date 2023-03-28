@@ -19,7 +19,7 @@ public class WappiSteps {
     }
 
     @Cuando("^diligencio el formulario de actualización de datos$")
-    public void diligencioElFormularioDeActualizacionDeDatos()throws InterruptedException {
+    public void diligencioElFormularioDeActualizacionDeDatos(){
         WappiController.seleccionarOpcionMenu("Informacion Personal");
 
         persona.setNombre("Angelica");
