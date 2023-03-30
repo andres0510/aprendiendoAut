@@ -1,5 +1,9 @@
 package com.aprendiendoaut.test.dto;
 
+import com.aprendiendoaut.test.helpers.Dictionary;
+import com.aprendiendoaut.test.helpers.Utilities;
+import com.github.javafaker.Faker;
+
 import java.util.Date;
 
 public class Persona {
@@ -8,6 +12,15 @@ public class Persona {
     private Date fechaNacimiento;
     private String pais;
     private String sexo;
+
+    public Persona() {
+        Faker faker = new Faker();
+        this.nombre= faker.name().firstName();
+        this.apellido= faker.name().lastName();
+        this.pais= Utilities.seleccionarValorAleatorioDeLista(Dictionary.Pais.PAISES);
+        this.fechaNacimiento= faker.date().birthday();
+        this.sexo= Utilities.seleccionarValorAleatorioDeLista(Dictionary.Sexo.SEXOS);;
+    }
 
     public String getNombre(){
         return nombre;

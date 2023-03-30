@@ -1,5 +1,8 @@
 package com.aprendiendoaut.test.helpers;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Dictionary {
 
     private Dictionary(){}
@@ -24,5 +27,12 @@ public class Dictionary {
         public static final String D = "d";
         public static final String DD_MMM_YYYY = "dd MMM yyyy";
     }
-
+    public static class Pais{
+        private Pais(){}
+        public static final List<String> PAISES= Arrays.asList("Colombia","Argentina", "Estados Unidos");
+    }
+    public static class Sexo{
+        private Sexo(){}
+        public static final List<String> SEXOS= Arrays.asList("Masculino","Femenino");
+    }
 }

@@ -1,7 +1,10 @@
 package com.aprendiendoaut.test.helpers;
 
+import com.github.javafaker.Faker;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class Utilities {
@@ -26,6 +29,13 @@ public class Utilities {
         } catch (Exception e) {
             Report.reportFail(String.format("[ERROR] Waiting failure: %s", e.getMessage()));
         }
+    }
+
+    public static String seleccionarValorAleatorioDeLista (List<String> lista){
+        Faker faker = new Faker();
+        int indice = faker.random().nextInt(0, lista.size()-1);
+        return lista.get(indice);
+
     }
 
 }

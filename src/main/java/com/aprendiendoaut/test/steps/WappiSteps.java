@@ -21,24 +21,16 @@ public class WappiSteps {
     @Cuando("^diligencio el formulario de actualización de datos$")
     public void diligencioElFormularioDeActualizacionDeDatos(){
         WappiController.seleccionarOpcionMenu("Informacion Personal");
-
-        persona.setNombre("Angelica");
-        persona.setApellido("Franco");
-        persona.setFechaNacimiento(new Date());
-        persona.setPais("Colombia");
-        persona.setSexo("Femenino");
         WappiController.ingresarDatos(persona);
         WappiController.guardarDatos();
 
     }
 
     @Entonces("^el sistema actualizará los datos$")
-    public void elSistemaActualizaraLosDatos() throws InterruptedException {
+    public void elSistemaActualizaraLosDatos()  {
         WappiController.validarMensaje();
         WappiController.seleccionarOpcionMenu("Informacion Personal");
         WappiController.validarDatosActualizados(persona);
-        Thread.sleep(5000);
-
     }
 
 }
