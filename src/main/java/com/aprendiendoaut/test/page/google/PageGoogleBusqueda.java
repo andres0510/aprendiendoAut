@@ -1,4 +1,4 @@
-package com.aprendiendoaut.test.page;
+package com.aprendiendoaut.test.page.google;
 
 import com.aprendiendoaut.test.action.DriverManager;
 import org.openqa.selenium.WebElement;

@@ -1,15 +1,13 @@
 package com.aprendiendoaut.test.controller;
 
 import com.aprendiendoaut.test.dto.Persona;
+import com.aprendiendoaut.test.helpers.Dictionary;
 import com.aprendiendoaut.test.helpers.Report;
+import com.aprendiendoaut.test.helpers.Utilities;
 import com.aprendiendoaut.test.page.wappi.PageWappiCabezal;
 import com.aprendiendoaut.test.page.wappi.PageWappiFormulario;
 import com.aprendiendoaut.test.page.wappi.PageWappiIniciarSesion;
-import com.aprendiendoaut.test.utils.Utilidades;
 import org.junit.Assert;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class WappiController {
 
@@ -51,8 +49,7 @@ public class WappiController {
         pageWappiFormulario.ingresarImagen(rutaImagen);
         pageWappiFormulario.ingresarUsuario(persona.getNombre());
         pageWappiFormulario.ingresarApellido(persona.getApellido());
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaNacimiento = sdf.format(persona.getFechaNacimiento());
+        String fechaNacimiento = Utilities.getDateAsFormat(persona.getFechaNacimiento(), Dictionary.DateFormat.DD_MM_YYYY);
         pageWappiFormulario.ingresarFechaNacimiento(fechaNacimiento);
 
         switch (persona.getPais()){
@@ -102,7 +99,6 @@ public class WappiController {
 
     public static void validarDatosActualizados(Persona usuario){
 
-
         PageWappiFormulario pageWappiFormulario = new PageWappiFormulario();
         String nombreUsuario = pageWappiFormulario.obtenerNombre();
         Assert.assertEquals(nombreUsuario, usuario.getNombre());
@@ -116,29 +112,26 @@ public class WappiController {
         Assert.assertEquals(paisUsuario, usuario.getPais());
 
         String fechaNacimientoUsuario = pageWappiFormulario.obtenerFechaNacimiento();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaNacimiento = sdf.format(usuario.getFechaNacimiento());
+        String fechaNacimiento = Utilities.getDateAsFormat(usuario.getFechaNacimiento(), Dictionary.DateFormat.DD_MM_YYYY);
         Assert.assertEquals(fechaNacimientoUsuario, fechaNacimiento);
 
-
         String sexoUsuario="";
-       if (pageWappiFormulario.validarCheckSexoFemenino() && !pageWappiFormulario.validarCheckSexoMasculino()){
-           sexoUsuario="Femenino";
-       }
-       else
-       if (!pageWappiFormulario.validarCheckSexoFemenino() && pageWappiFormulario.validarCheckSexoMasculino()){
-           sexoUsuario="Masculino";
-       }
-       else
-       if (pageWappiFormulario.validarCheckSexoFemenino() && pageWappiFormulario.validarCheckSexoMasculino()){
-           Report.reportFail("Se encuentran seleccionados ambos radioButtom del sexo del usuario");
-       }
-       else{
-           Report.reportFail("No se encuentran seleccionados ninguno de los radioButtom del sexo del usuario");
-       }
-       Assert.assertEquals(sexoUsuario, usuario.getSexo());
-
-
+        if (pageWappiFormulario.validarCheckSexoFemenino() && !pageWappiFormulario.validarCheckSexoMasculino()){
+            sexoUsuario="Femenino";
+        }
+        else
+        if (!pageWappiFormulario.validarCheckSexoFemenino() && pageWappiFormulario.validarCheckSexoMasculino()){
+            sexoUsuario="Masculino";
+        }
+        else
+        if (pageWappiFormulario.validarCheckSexoFemenino() && pageWappiFormulario.validarCheckSexoMasculino()){
+            Report.reportFail("Se encuentran seleccionados ambos radioButtom del sexo del usuario");
+        }
+        else{
+            Report.reportFail("No se encuentran seleccionados ninguno de los radioButtom del sexo del usuario");
+        }
+        Assert.assertEquals(sexoUsuario, usuario.getSexo());
     }
+
 }
 

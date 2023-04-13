@@ -1,8 +1,8 @@
 package com.aprendiendoaut.test.controller;
 
-import com.aprendiendoaut.test.page.PageGoogleBusqueda;
-import com.aprendiendoaut.test.page.PageGoogleImagenesBusqueda;
-import com.aprendiendoaut.test.page.PageGoogleImagenesResultado;
+import com.aprendiendoaut.test.page.google.PageGoogleBusqueda;
+import com.aprendiendoaut.test.page.google.PageGoogleImagenesBusqueda;
+import com.aprendiendoaut.test.page.google.PageGoogleImagenesResultado;
 
 public class GoogleController {
 

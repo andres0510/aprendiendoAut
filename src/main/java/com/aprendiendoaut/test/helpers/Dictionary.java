@@ -23,16 +23,17 @@ public class Dictionary {
     public static class DateFormat {
         private DateFormat(){}
         public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH-mm-ss";
-        public static final String YYYY_MM = "yyyy-MM";
-        public static final String D = "d";
-        public static final String DD_MMM_YYYY = "dd MMM yyyy";
+        public static final String DD_MM_YYYY = "dd/MM/yyyy";
     }
+
     public static class Pais{
         private Pais(){}
-        public static final List<String> PAISES= Arrays.asList("Colombia","Argentina", "Estados Unidos");
+        public static final List<String> PAISES = Arrays.asList("Colombia","Argentina", "Estados Unidos");
     }
+
     public static class Sexo{
         private Sexo(){}
-        public static final List<String> SEXOS= Arrays.asList("Masculino","Femenino");
+        public static final List<String> SEXOS = Arrays.asList("Masculino","Femenino");
     }
+
 }

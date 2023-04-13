@@ -7,8 +7,6 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 
-import java.util.Date;
-
 public class WappiSteps {
     private Persona persona = new Persona();
 
